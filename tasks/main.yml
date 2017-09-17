@@ -1,0 +1,70 @@
+---
+
+- name: install python2
+  when: install_python2
+  pacman:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - python2
+    - python2-pip
+    - python2-setuptools
+    - python2-virtualenv
+  tags:
+    - python
+
+- name: Install python3
+  pacman:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - python
+    - python-pip
+    - python-setuptools
+    - python-virtualenv
+  tags:
+    - python
+
+- name: set default version of python linked as /usr/bin/python
+  file:
+    src: /usr/bin/{{ python_default_version }}
+    path: /usr/bin/python
+    owner: root
+    group: root
+    state: link
+  tags:
+    - python
+
+- name: install python2 most useful modules
+  pip:
+    name: "{{ item }}"
+    state: latest
+    executable: /usr/bin/pip2
+  with_items: "{{ python2_popular_modules }}"
+  tags:
+    - python
+
+- name: install python3 most useful modules
+  pip:
+    name: "{{ item }}"
+    state: latest
+  with_items: "{{ python3_popular_modules }}"
+  tags:
+    - python
+
+- name: install additional python2 modules
+  pip:
+    name: "{{ item }}"
+    state: latest
+    executable: /usr/bin/pip2
+  with_items: "{{ python2_modules }}"
+  tags:
+    - python
+
+- name: install additional python3 modules
+  pip:
+    name: "{{ item }}"
+    state: latest
+  with_items: "{{ python3_modules }}"
+  tags:
+    - python

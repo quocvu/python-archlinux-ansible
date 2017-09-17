@@ -1,0 +1,6 @@
+---
+
+install_python2: true
+python_default_version: python3
+python2_modules: []
+python3_modules: []

@@ -1,0 +1,27 @@
+galaxy_info:
+  author: Quoc Vu
+  description: >
+    A role to instal Python and Python's goodies into an ArchLinux host.
+    That include python3, virtualenv, pip, and setuptools.
+    Optionally install the same set for python2
+  company: N/A
+  license: MIT
+  min_ansible_version: 2.0
+  github_branch: master
+  platforms:
+    - name: ArchLinux
+      versions:
+        - all
+  galaxy_tags:
+    - archlinux
+    - development
+    - easy_install
+    - linux
+    - modules
+    - pip
+    - python
+    - python2
+    - python3
+    - setuptools
+    - virtualenv
+dependencies: []
