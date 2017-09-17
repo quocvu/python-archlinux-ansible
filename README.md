@@ -1,4 +1,5 @@
 [![Build Status](https://img.shields.io/travis/quocvu/python-archlinux-ansible.svg)](https://travis-ci.org/quocvu/python-archlinux-ansible)
+[![Ansible Role](https://img.shields.io/ansible/role/20520.svg)](https://galaxy.ansible.com/quocvu/python-archlinux)
 
 python-archlinux
 ================
