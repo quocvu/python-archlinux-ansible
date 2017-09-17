@@ -1,7 +1,7 @@
 ---
 
 - name: install python2
-  when: install_python2
+  when: "{{ install_python2 }}"
   pacman:
     name: "{{ item }}"
     state: present
@@ -36,6 +36,7 @@
     - python
 
 - name: install python2 most useful modules
+  when: "{{ install_python2 }}"
   pip:
     name: "{{ item }}"
     state: latest
@@ -53,6 +54,7 @@
     - python
 
 - name: install additional python2 modules
+  when: "{{ install_python2 }}"
   pip:
     name: "{{ item }}"
     state: latest
